@@ -113,7 +113,6 @@ public class LogAndDic {
         // receive log
         public void Rec_log(){
 
-
         }
 
     }
@@ -121,12 +120,16 @@ public class LogAndDic {
     public class Dic {
         // calender, a vector of vector
         // each vector consists of < <Event name>, <Date>, <Start>, <End>, <User1>...<User n> >
-        Vector< Vector > Cld;
+        Vector Cld;
 
         // insert x to dictionary
+
+        public Dic(){
+            Cld = new Vector< Vector >(0);
+        }
+
         private void Insert_Dic(Vector e){
-
-
+            Cld.add(e);
         }
 
         // delete x
