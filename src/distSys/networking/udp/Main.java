@@ -26,7 +26,14 @@ public class Main {
 
         // reads the file line by line
         while(hostsInput.hasNextLine()) {
-            numHosts++;
+            numHosts = numHosts+1;
+
+            hostsPorts.put(hostsInput.next(),Integer.parseInt(hostsInput.next()));
+        }
+
+        // test output the map
+        for (HashMap.Entry<String,Integer> entry : hostsPorts.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue() + "\n");
         }
     }
 }
