@@ -1,7 +1,6 @@
 package distSys.algorithm.wb;
 
 import java.util.Vector;
-import java.sql.Time;
 
 public class LogAndDic {
 
@@ -63,19 +62,13 @@ public class LogAndDic {
     // define record
     public class eRecord {
         String op; // operation type
-        String tm; // operation time
-        String eID; // Event ID (user ID)
+        Integer tm; // operation time
+        Integer P_ind; // Process index, Pi, that i
 
-        public eRecord(String a){
-            op = a;
-            tm = "";
-            eID = "";
-        }
-
-        public eRecord(String a, String b , String c){
+        private eRecord(String a, Integer b , Integer c){
             op = a;
             tm = b;
-            eID = c;
+            P_ind = c;
         }
     }
 
@@ -83,7 +76,7 @@ public class LogAndDic {
         // log information and current time stamp
         private Vector< eRecord > log_info;
         private Integer CurTmstmp;
-        // Index indicates the order in all users
+        // Index indicates the index in all users
         private Integer Index;
         // matrix in algorithm
         Integer[][] Ti;
@@ -102,7 +95,7 @@ public class LogAndDic {
             CurTmstmp++;
             Ti[Index][Index] = CurTmstmp;
             // create event record
-            log_info.add(new eRecord(e));
+            log_info.add(new eRecord(e, CurTmstmp, Index));
         }
         // send the log to all the users.
         public void Send_log(){
@@ -117,15 +110,15 @@ public class LogAndDic {
 
     }
 
-    public class Dic {
+    private class Dic {
         // calender, a vector of vector
         // each vector consists of < <Event name>, <Date>, <Start>, <End>, <User1>...<User n> >
-        Vector Cld;
+        private Vector< Vector  > Cld;
 
         // insert x to dictionary
 
-        public Dic(){
-            Cld = new Vector< Vector >(0);
+        private Dic(){
+            Cld = new Vector<>(0);
         }
 
         private void Insert_Dic(Vector e){
