@@ -1,4 +1,4 @@
-package distSys.algorithm.wb;
+package distSys;
 
 
 import java.util.Calendar;
