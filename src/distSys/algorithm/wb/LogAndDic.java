@@ -1,9 +1,12 @@
 package distSys.algorithm.wb;
 
+import java.util.GregorianCalendar;
 import java.util.Vector;
+import java.util.Calendar;
 
 public class LogAndDic {
 
+    /////////////////////////////////////////////////////////
     // define variable
     private Log PLi;
     private Dic Vi;
@@ -11,46 +14,41 @@ public class LogAndDic {
 
 
     // initialization
-    public LogAndDic(Integer n, Integer i){
+    public LogAndDic(int n, int i){
         PLi = new Log(n,i);
         Vi = new Dic();
     }
 
     private static String helper1( Vector e){
         String temp = "";
-        if (e.capacity() == 0)return temp;
-        for(int i = 0; i < e.capacity(); i++){
+        if (e.size() == 0)return temp;
+        for(int i = 0; i < e.size(); i++){
             temp = temp + e.get(i) + " ";
-        }
-        if (temp.charAt(temp.length()-1)==' '){
-            temp = temp.replace(temp.substring(temp.length()-1), "");
         }
         return temp;
     }
 
     // insert an event
-    public void Insert( Vector e ){
-       String temp = helper1(e);
-       PLi.Insert_E(temp);
-       Vi.Insert_Dic(e);
+    public void Insert( meetingInfo m ){
+       PLi.Insert_E(m);
+       Vi.Insert_Dic(m);
     }
 
     // Delete an event
-    public void Delete( Vector e ){
-        String temp = helper1(e);
-        PLi.Insert_E(temp);
+    public void Delete( meetingInfo e ){
+        PLi.Insert_E(e);
         Vi.Delete_Dic(e);
     }
 
 
     // view dictionary
     public void View_dic(){
-
+        Vi.printDic();
     }
 
     // view log
     public void View_log(){
-
+        PLi.printLog();
 
     }
 
@@ -61,41 +59,68 @@ public class LogAndDic {
 
     // define record
     public class eRecord {
-        String op; // operation type
-        Integer tm; // operation time
-        Integer P_ind; // Process index, Pi, that i
+        meetingInfo op; // operation type
+        int tm; // time stamp
+        int P_ind; // Process index, Pi, that i
 
-        private eRecord(String a, Integer b , Integer c){
-            op = a;
+        private eRecord(meetingInfo a, int b , int c){
+            op = new meetingInfo(a);
             tm = b;
             P_ind = c;
         }
     }
 
+    // print out stuff
+    private void print_date(GregorianCalendar g){
+        System.out.print(g.get(Calendar.MONTH));
+        System.out.print("/" + g.get(Calendar.DATE) + "/");
+        System.out.print(g.get(Calendar.YEAR) + " ");
+    }
+
+    private void print_time(GregorianCalendar g){
+        System.out.print(g.get(Calendar.HOUR) + ":");
+        System.out.print(g.get(Calendar.MINUTE) + " ");
+    }
+
+    private void print_all(meetingInfo m){
+        System.out.print(m.name + " ");
+        print_date(m.day);
+        print_time(m.start);
+        print_time(m.end);
+        m.users.forEach(item-> System.out.print(item + " "));
+    }
+
+
     public class Log {
         // log information and current time stamp
         private Vector< eRecord > log_info;
-        private Integer CurTmstmp;
+        private int CurTmstmp;
         // Index indicates the index in all users
-        private Integer Index;
+        private int Index;
         // matrix in algorithm
-        Integer[][] Ti;
+        int[][] Ti;
 
         // initialization n is how many users, and
         //  i is the index for itself
-        private Log(Integer n, Integer i) {
-            log_info = new Vector< eRecord >();
+        private Log(int n, int i) {
+            log_info = new Vector<>();
             CurTmstmp = 0;
             Index = i;
-            Ti = new Integer[n][n];
+            Ti = new int[n][n];
         }
 
         // When insert event
-        private void Insert_E( String e ) {
+        private void Insert_E( meetingInfo e ) {
             CurTmstmp++;
             Ti[Index][Index] = CurTmstmp;
             // create event record
             log_info.add(new eRecord(e, CurTmstmp, Index));
+        }
+
+
+        private void printLog(){
+            System.out.println("View Log:");
+            log_info.forEach(item-> print_all(item.op));
         }
         // send the log to all the users.
         public void Send_log(){
@@ -113,25 +138,28 @@ public class LogAndDic {
     private class Dic {
         // calender, a vector of vector
         // each vector consists of < <Event name>, <Date>, <Start>, <End>, <User1>...<User n> >
-        private Vector< Vector  > Cld;
+        private Vector< meetingInfo > Cld;
 
         // insert x to dictionary
 
         private Dic(){
-            Cld = new Vector<>(0);
+            Cld = new Vector<>();
         }
 
-        private void Insert_Dic(Vector e){
+        private void Insert_Dic(meetingInfo e){
             Cld.add(e);
         }
 
         // delete x
-        private void Delete_Dic(Vector e){
+        private void Delete_Dic(meetingInfo e){
+            Cld.remove(e);
+        }
 
-
+        private void printDic(){
+            System.out.println("View Dic:");
+            Cld.forEach(item-> print_all(item));
         }
 
     }
-
 }
 
