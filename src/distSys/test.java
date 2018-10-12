@@ -1,5 +1,6 @@
 
 package distSys;
+import distSys.algorithm.wb.*;
 
 import java.sql.Time;
 import java.util.*;
@@ -10,31 +11,34 @@ public class test {
 
 
         Vector<String> v = new Vector<>();
-        v.add("aaaa1");
-        v.add("bbbbb");
-        v.add("ccccc");
-        Date d = new Date();
-        Time d1 = new Time(d.getTime());
-        GregorianCalendar test = new GregorianCalendar(1998,11,12, 13,50);
-        meetingInfo v1 = new meetingInfo("ssss", test, test, test, v, 1);
+        v.add("George");
+        v.add("Fisher");
+        v.add("Maria");
 
+        GregorianCalendar t1 = new GregorianCalendar(1998,11,12, 15,50);
+        GregorianCalendar t2 = new GregorianCalendar(1998,11,12, 15,20);
 
+        GregorianCalendar t3 = new GregorianCalendar(1998,11,12, 15,20);
+        GregorianCalendar t4 = new GregorianCalendar(1998,11,12, 15,50);
+
+        System.out.println(t1);
+
+        meetingInfo v1 = new meetingInfo("meeting1", t1, t1, t2, v, 1);
+        meetingInfo v2 = new meetingInfo("meeting2", t3, t3, t4, v, 1);
+
+        // check if ok
+        //System.out.println("collison should be true: " + Algorithm.ifFine(v1,v2));
+
+        //check view
         c1.Insert(v1);
-        c1.Insert(v1);
-        c1.Insert(v1);
-        c1.Insert(v1);
-        System.out.println("check1");
-        c1.View_dic();
+        c1.Insert(v2);
+
         c1.View_log();
-
-        c1.Delete(v1);
-
-        System.out.println("check2");
         c1.View_dic();
-        c1.View_log();
 
 
-        System.out.println(test.get(Calendar.MONTH));
+
+        // check check collison
 
 
     }
