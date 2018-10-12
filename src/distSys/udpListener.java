@@ -6,7 +6,7 @@ public class udpListener implements Runnable{
 
     private DatagramSocket socket;
 
-    public udpListener()
+    public udpListener(){}
     @Override
     public void run() {
 
