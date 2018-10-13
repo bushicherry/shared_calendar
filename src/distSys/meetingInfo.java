@@ -16,7 +16,7 @@ public class meetingInfo {
     public Vector<String> users;
     //indicator 1 if insert, 0 if delete
 
-    // constructor1
+    // constructor for deletion
     public meetingInfo(String n){
         name = n;
         users = null;
@@ -39,4 +39,22 @@ public class meetingInfo {
         start = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE),MI.start.get(Calendar.HOUR_OF_DAY), MI.start.get(Calendar.MINUTE));
         end = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.end.get(Calendar.HOUR_OF_DAY), MI.end.get(Calendar.MINUTE));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof String) {
+            String s = (String)o;
+            return s.equals(name);
+        }
+        if (o instanceof meetingInfo) {
+            meetingInfo m = (meetingInfo)o;
+            return name.equals(m.name);
+        }
+        return false;
+    }
+
+//    @Override
+//    public int hashCode() {
+//
+//    }
 }

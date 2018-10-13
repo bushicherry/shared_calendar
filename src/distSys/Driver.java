@@ -106,12 +106,13 @@ public class Driver {
                     continue;
                 }
 
+                GregorianCalendar gDate = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay());
+                GregorianCalendar gStartTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),startTime.getHour(),startTime.getMinute());
+                GregorianCalendar gEndTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),endTime.getHour(),endTime.getMinute());
+                meetingInfo m = new meetingInfo(name,gDate,gStartTime,gEndTime,participants);
                 //boolean conflict = false;
                 for (String p : participants) {
-                    GregorianCalendar gDate = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay());
-                    GregorianCalendar gStartTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),startTime.getHour(),startTime.getMinute());
-                    GregorianCalendar gEndTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),endTime.getHour(),endTime.getMinute());
-                    meetingInfo m = new meetingInfo(name,gDate,gStartTime,gEndTime,participants,1);
+
                 }
                 if (conflict) {
                     System.out.println("Unable to schedule meeting " + name +".");
