@@ -15,16 +15,14 @@ public class meetingInfo {
     // users
     public Vector<String> users;
     //indicator 1 if insert, 0 if delete
-    public int ind;
 
     // constructor
-    public meetingInfo(String n, GregorianCalendar d, GregorianCalendar s, GregorianCalendar e, Vector<String> u, int i){
+    public meetingInfo(String n, GregorianCalendar d, GregorianCalendar s, GregorianCalendar e, Vector<String> u){
         name = n;
         day = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE));
         start = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE),s.get(Calendar.HOUR_OF_DAY), s.get(Calendar.MINUTE));
         end = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE),e.get(Calendar.HOUR_OF_DAY), e.get(Calendar.MINUTE));
         users = new Vector<>(u);
-        int ind = i;
     }
 
     public meetingInfo(meetingInfo MI){
@@ -33,6 +31,5 @@ public class meetingInfo {
         start = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE),MI.start.get(Calendar.HOUR_OF_DAY), MI.start.get(Calendar.MINUTE));
         end = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.end.get(Calendar.HOUR_OF_DAY), MI.end.get(Calendar.MINUTE));
         users = new Vector<>(MI.users);
-        int ind = MI.ind;
     }
 }
