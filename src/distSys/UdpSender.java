@@ -3,12 +3,12 @@ package distSys;
 import java.io.IOException;
 import java.net.*;
 
-public class udpSender implements Runnable{
+public class UdpSender implements Runnable{
 
     private DatagramSocket socket;
     private DatagramPacket packet;
 
-    public udpSender(int myPort, int clientPort, String clientName, byte[] msg, int length) {
+    public UdpSender(int myPort, int clientPort, String clientName, byte[] msg, int length) {
         try {
             socket = new DatagramSocket(myPort);
             packet = new DatagramPacket(
