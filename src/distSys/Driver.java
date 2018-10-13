@@ -126,13 +126,13 @@ public class Driver {
 
             }
             else if (command.equals("view")) {
-
+                logAndDic.View_dic();
             }
             else if (command.equals("myview")) {
-
+                logAndDic.myView(args[0]);
             }
             else if (command.equals("log")) {
-
+                logAndDic.View_log();
             }
             else {
                 System.out.println("The command is not recognizable. Please follow the following formats:\n" +
