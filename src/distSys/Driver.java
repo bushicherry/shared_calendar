@@ -9,10 +9,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Driver {
     public static void main(String[] args) {
@@ -98,7 +95,7 @@ public class Driver {
                     continue;
                 }
 
-                ArrayList<String> participants = new ArrayList<>();
+                Vector<String> participants = new Vector<>();
                 boolean selfIncluded = false;
                 while (commandS.hasNext()) {
                     if (commandS.next().equals(args[0])) selfIncluded = true;
@@ -109,15 +106,18 @@ public class Driver {
                     continue;
                 }
 
-                boolean conflict = false;
+                //boolean conflict = false;
                 for (String p : participants) {
-                    blurblur;
+                    GregorianCalendar gDate = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay());
+                    GregorianCalendar gStartTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),startTime.getHour(),startTime.getMinute());
+                    GregorianCalendar gEndTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),endTime.getHour(),endTime.getMinute());
+                    meetingInfo m = new meetingInfo(name,gDate,gStartTime,gEndTime,participants,1);
                 }
                 if (conflict) {
                     System.out.println("Unable to schedule meeting " + name +".");
                     continue;
                 } else {
-                    blurblur;
+                    bluhbluh;
                 }
 
 
