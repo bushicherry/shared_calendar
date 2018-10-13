@@ -44,7 +44,7 @@ public class meetingInfo {
     public boolean equals(Object o) {
         if (o instanceof meetingInfo) {
             meetingInfo m = (meetingInfo)o;
-            return name.equals(m.name);
+            return name.equals(m.name); //Given that name of each meeting is unique
         }
         return false;
     }
