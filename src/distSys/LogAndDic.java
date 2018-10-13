@@ -1,9 +1,9 @@
 package distSys;
 
+import com.sun.corba.se.impl.protocol.POALocalCRDImpl;
+
 import javax.swing.text.PlainDocument;
-import java.util.GregorianCalendar;
-import java.util.Vector;
-import java.util.Calendar;
+import java.util.*;
 
 public class LogAndDic {
 
@@ -26,9 +26,10 @@ public class LogAndDic {
     }
 
     // Delete an event
-    public void Delete( meetingInfo e ){
-        PLi.Insert_E(e);
-        Vi.Delete_Dic(e);
+    public void Delete( meetingInfo s ){
+        Vi.Delete_Dic(s);
+        meetingInfo m = new meetingInfo(s);
+        PLi.Insert_E(m);
     }
 
     // check collision. True means collision happens
@@ -59,14 +60,37 @@ public class LogAndDic {
                 my_NP.add(m);
             }
         }
-        return new sendPac("", PLi.Ti, my_NP);
+        return new sendPac("", PLi.Ti, my_NP, PLi.Index);
     }
 
-    public void dealWithReceive(sendPac pac){
-        // prepare NP
-        for(eRecord eR: pac.NP){
+    // deal with rec
 
+
+    public void dealWithReceive(sendPac pac){
+        // prepare NE
+        Vector<eRecord> NE = new Vector<>();
+        for(eRecord fR: pac.NP){
+            if(!has_rec(PLi.Ti, fR, PLi.Index)){
+                // which means It's in NE
+                NE.add(fR);
+            }
         }
+        // update Vi
+        for(eRecord dR: NE){
+            if(!Vi.Cld.contains(dR.op.name)){
+
+            }
+        }
+        // update Ti
+        for (int r = 0; r < PLi.Ti.length; r++){
+            PLi.Ti[PLi.Index][r] = Math.max(PLi.Ti[PLi.Index][r], pac.Ti[pac.index][r]);
+            for(int s = 0; s < PLi.Ti.length; s++){
+                PLi.Ti[r][s] = Math.max(PLi.Ti[r][s], pac.Ti[r][s]);
+            }
+        }
+        //update Log
+
+
     }
 
 
@@ -121,10 +145,12 @@ public class LogAndDic {
         String msg;
         int[][] Ti;
         Vector<eRecord> NP;
-        public sendPac(String m, int[][] t, Vector<LogAndDic.eRecord> N){
+        int index;
+        public sendPac(String m, int[][] t, Vector<LogAndDic.eRecord> N, int i){
             msg = m;
             Ti = t;
             NP = N;
+            index = i;
         }
     }
 
