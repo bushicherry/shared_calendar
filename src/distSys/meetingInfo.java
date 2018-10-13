@@ -21,8 +21,8 @@ public class meetingInfo {
     public meetingInfo(String n, GregorianCalendar d, GregorianCalendar s, GregorianCalendar e, Vector<String> u, int i){
         name = n;
         day = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE));
-        start = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE),s.get(Calendar.HOUR), s.get(Calendar.MINUTE));
-        end = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE),e.get(Calendar.HOUR), e.get(Calendar.MINUTE));
+        start = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE),s.get(Calendar.HOUR_OF_DAY), s.get(Calendar.MINUTE));
+        end = new GregorianCalendar(d.get(Calendar.YEAR), d.get(Calendar.MONTH), d.get(Calendar.DATE),e.get(Calendar.HOUR_OF_DAY), e.get(Calendar.MINUTE));
         users = new Vector<>(u);
         int ind = i;
     }
@@ -30,8 +30,8 @@ public class meetingInfo {
     public meetingInfo(meetingInfo MI){
         name = MI.name;
         day = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE));
-        start = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE),MI.start.get(Calendar.HOUR), MI.start.get(Calendar.MINUTE));
-        end = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.end.get(Calendar.HOUR), MI.end.get(Calendar.MINUTE));
+        start = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE),MI.start.get(Calendar.HOUR_OF_DAY), MI.start.get(Calendar.MINUTE));
+        end = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.end.get(Calendar.HOUR_OF_DAY), MI.end.get(Calendar.MINUTE));
         users = new Vector<>(MI.users);
         int ind = MI.ind;
     }

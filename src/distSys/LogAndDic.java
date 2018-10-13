@@ -19,19 +19,10 @@ public class LogAndDic {
         Vi = new Dic();
     }
 
-    private static String helper1( Vector e){
-        String temp = "";
-        if (e.size() == 0)return temp;
-        for(int i = 0; i < e.size(); i++){
-            temp = temp + e.get(i) + " ";
-        }
-        return temp;
-    }
-
     // insert an event
     public void Insert( meetingInfo m ){
-       PLi.Insert_E(m);
-       Vi.Insert_Dic(m);
+        PLi.Insert_E(m);
+        Vi.Insert_Dic(m);
     }
 
     // Delete an event
@@ -39,6 +30,23 @@ public class LogAndDic {
         PLi.Insert_E(e);
         Vi.Delete_Dic(e);
     }
+
+    // check collision. True means collision happens
+    public boolean check_collison( meetingInfo m){
+        //loop users in m
+        for(String user: m.users){
+            for(meetingInfo meeting: this.Vi.Cld){
+                if(meeting.users.contains(user)){
+                    if(!Algorithm.ifFine(m, meeting)){
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+
 
 
     // view dictionary
@@ -53,8 +61,24 @@ public class LogAndDic {
     }
 
     // my view: view event about me
-    public void myView(String ID){
+    private boolean helper1(meetingInfo m, String name){
+        for(String s: m.users){
+            if(s.equals(name))return true;
+        }
+        return false;
+    }
 
+    public void myView(String name){
+        int ind = 0;
+        for(meetingInfo m: Vi.Cld){
+            if(helper1(m, name)){
+                print_all(m);
+                ind = 1;
+            }
+        }
+        if ( ind == 0 ){
+            System.out.println("You have no schedule");
+        }
     }
 
     // define record
@@ -78,8 +102,8 @@ public class LogAndDic {
     }
 
     private void print_time(GregorianCalendar g){
-        System.out.print(g.get(Calendar.HOUR) + ":");
-        System.out.print(g.get(Calendar.MINUTE) + " ");
+        System.out.print(g.get(Calendar.HOUR_OF_DAY) + ":");
+        System.out.print(g.get(Calendar.MINUTE) + " ") ;
     }
 
     private void print_all(meetingInfo m){
@@ -88,6 +112,7 @@ public class LogAndDic {
         print_time(m.start);
         print_time(m.end);
         m.users.forEach(item-> System.out.print(item + " "));
+        System.out.println();
     }
 
 
