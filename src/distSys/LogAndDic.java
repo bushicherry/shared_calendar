@@ -1,5 +1,6 @@
 package distSys;
 
+import javax.swing.text.PlainDocument;
 import java.util.GregorianCalendar;
 import java.util.Vector;
 import java.util.Calendar;
@@ -46,10 +47,20 @@ public class LogAndDic {
     }
 
     // for send and receive
-    public  boolean has_rec(int[][] T, eRecord eR, int k){
+    public boolean has_rec(int[][] T, eRecord eR, int k){
         return T[k][eR.P_ind] >= eR.tm;
     }
 
+    public sendPac PacReady(int k){
+        // k is the index of which Pi
+        Vector<eRecord> my_NP = new Vector<>();
+        for(eRecord m: PLi.log_info){
+            if(!has_rec(PLi.Ti, m, k)){
+                my_NP.add(m);
+            }
+        }
+        return new sendPac("", PLi.Ti, my_NP);
+    }
 
 
 
@@ -96,6 +107,17 @@ public class LogAndDic {
             op = new meetingInfo(a);
             tm = b;
             P_ind = c;
+        }
+    }
+
+    public class sendPac {
+        String msg;
+        int[][] Ti;
+        Vector<eRecord> NP;
+        public sendPac(String m, int[][] t, Vector<LogAndDic.eRecord> N){
+            msg = m;
+            Ti = t;
+            NP = N;
         }
     }
 
