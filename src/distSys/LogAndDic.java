@@ -62,6 +62,13 @@ public class LogAndDic {
         return new sendPac("", PLi.Ti, my_NP);
     }
 
+    public void dealWithReceive(sendPac pac){
+        // prepare NP
+        for(eRecord eR: pac.NP){
+
+        }
+    }
+
 
 
 
