@@ -28,7 +28,7 @@ public class LogAndDic {
     // Delete an event
     public void Delete( meetingInfo s ){
         Vi.Delete_Dic(s);
-        meetingInfo m = new meetingInfo(s);
+        meetingInfo m = new meetingInfo(s.name);
         PLi.Insert_E(m);
     }
 
@@ -64,6 +64,14 @@ public class LogAndDic {
     }
 
     // deal with rec
+    private boolean helper2(eRecord eR){
+        for(int s = 1; s < PLi.Ti.length; s++){
+            if (!has_rec(PLi.Ti, eR, s)){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     public void dealWithReceive(sendPac pac){
@@ -77,8 +85,13 @@ public class LogAndDic {
         }
         // update Vi
         for(eRecord dR: NE){
-            if(!Vi.Cld.contains(dR.op.name)){
-
+            if(!Vi.Cld.contains(dR.op)){
+                if(dR.op.users == null){
+                    System.out.println("Error: can insert because it exists");
+                }
+                else {
+                    Vi.Insert_Dic((dR.op));
+                }
             }
         }
         // update Ti
@@ -89,12 +102,13 @@ public class LogAndDic {
             }
         }
         //update Log
-
+        for(eRecord eR: NE){
+            if(!PLi.log_info.contains(eR) && helper2(eR)){
+                PLi.log_info.add(eR);
+            }
+        }
 
     }
-
-
-
 
     // view dictionary
     public void View_dic(){
@@ -138,6 +152,15 @@ public class LogAndDic {
             op = new meetingInfo(a);
             tm = b;
             P_ind = c;
+        }
+        @Override
+        public boolean equals(Object o) {
+            if (o instanceof eRecord) {
+                int a = ((eRecord) o).tm;
+                int b = ((eRecord) o).P_ind;
+                return  a == tm && b == P_ind;
+            }
+            return false;
         }
     }
 
