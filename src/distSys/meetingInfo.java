@@ -42,19 +42,10 @@ public class meetingInfo {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof String) {
-            String s = (String)o;
-            return s.equals(name);
-        }
         if (o instanceof meetingInfo) {
             meetingInfo m = (meetingInfo)o;
             return name.equals(m.name);
         }
         return false;
     }
-
-//    @Override
-//    public int hashCode() {
-//
-//    }
 }
