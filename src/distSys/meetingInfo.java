@@ -16,6 +16,14 @@ public class meetingInfo {
     public Vector<String> users;
     //indicator 1 if insert, 0 if delete
 
+    // constructor1
+    public meetingInfo(String n){
+        name = n;
+        users = null;
+        day = null;
+        start = null;
+        end = null;
+    }
     // constructor
     public meetingInfo(String n, GregorianCalendar d, GregorianCalendar s, GregorianCalendar e, Vector<String> u){
         name = n;
@@ -30,6 +38,5 @@ public class meetingInfo {
         day = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE));
         start = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE),MI.start.get(Calendar.HOUR_OF_DAY), MI.start.get(Calendar.MINUTE));
         end = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.end.get(Calendar.HOUR_OF_DAY), MI.end.get(Calendar.MINUTE));
-        users = new Vector<>(MI.users);
     }
 }
