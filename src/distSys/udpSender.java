@@ -9,7 +9,8 @@ public class udpSender implements Runnable{
     private DatagramPacket packet;
 
     public udpSender(int myPort, int clientPort, String clientName, byte[] msg, int length) {
-        try (DatagramSocket socket = new DatagramSocket(myPort)) {
+        try {
+            socket = new DatagramSocket(myPort);
             packet = new DatagramPacket(
                     msg,
                     length,
