@@ -6,7 +6,6 @@ import java.util.Calendar;
 
 public class LogAndDic {
 
-    /////////////////////////////////////////////////////////
     // define variable
     private Log PLi;
     private Dic Vi;
@@ -45,6 +44,12 @@ public class LogAndDic {
         }
         return false;
     }
+
+    // for send and receive
+    public  boolean has_rec(int[][] T, eRecord eR, int k){
+        return T[k][eR.P_ind] >= eR.tm;
+    }
+
 
 
 

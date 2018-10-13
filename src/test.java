@@ -1,9 +1,7 @@
 
-package distSys;
 
-import java.sql.Time;
 import java.util.*;
-
+import distSys.*;
 public class test {
     public static void main(String[] args){
         LogAndDic c1 = new LogAndDic(5,1 );
