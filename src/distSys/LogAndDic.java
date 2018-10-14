@@ -1,14 +1,16 @@
 package distSys;
 
+import java.io.Serializable;
 import java.net.DatagramSocket;
 import java.util.*;
 
-public class LogAndDic {
+public class LogAndDic implements Serializable {
 
     // define variable
     private Log PLi;
     private Dic Vi;
     private final Object lock = new Object();
+
 
 
     public int get_process(){
@@ -340,30 +342,13 @@ public class LogAndDic {
 
         private void printLog(){
             synchronized (lock) {
-                PriorityQueue<eRecord> priQ = new PriorityQueue<>(new Comparator<eRecord>() {
-                    @Override
-                    public int compare(eRecord t1, eRecord t2) {
-                        if(t1.op.day.before(t2.op.day)){
-                            return -1;
-                        } else if(t1.op.start.before(t2.op.start)){
-                            return -1;
-                        } else if(t1.op.name.compareTo(t2.op.name) < 0 ){
-                            return -1;
-                        } else if(t1.op.name.compareTo(t2.op.name) == 0) {
-                            return 0;
-                        } else {
-                            return 1;
-                        }
-                    }
-                });
-                priQ.addAll(log_info);
+
 
                 if (log_info.size() == 0) {
                     System.out.println("No Log now");
                     return;
                 }
-
-                for (eRecord item : priQ) {
+                for (eRecord item : log_info) {
                     if (item.op.users == null) {
                         System.out.print("delete ");
                     } else {
