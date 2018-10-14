@@ -1,8 +1,5 @@
 package distSys;
 
-import javafx.util.Pair;
-
-import javax.xml.crypto.Data;
 import java.net.DatagramSocket;
 import java.util.HashMap;
 import java.util.Vector;
@@ -14,7 +11,7 @@ public class Algorithm {
         return ( !(a.end.after(b.start)) ) || ( !(b.end.after(a.start)) );
     }
 
-    public static boolean Insert(LogAndDic m, meetingInfo e, HashMap<String, Pair<Integer,Integer> > myhash, String myname, DatagramSocket socket){
+    public static boolean Insert(LogAndDic m, meetingInfo e, HashMap<String, int[] > myhash, String myname, DatagramSocket socket){
         // First check the collision
         if(m.check_collision(e) != null){
             System.out.println("Unable to schedule meeting " + e.name);
@@ -29,7 +26,7 @@ public class Algorithm {
             return true;
         }
     }
-    public static boolean Cancel(LogAndDic m, String mt, String s, HashMap<String, Pair<Integer,Integer> > myhash, DatagramSocket socket){
+    public static boolean Cancel(LogAndDic m, String mt, String s, HashMap<String, int[] > myhash, DatagramSocket socket){
         // check if self in the meeting
         if(m.check_user(mt,s)){
             // get users
@@ -46,19 +43,19 @@ public class Algorithm {
         }
     }
 
-    public static void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, Pair<Integer,Integer> > myhash, DatagramSocket socket){
+    public static void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, int[] > myhash, DatagramSocket socket){
         //check pac's avalable:
         m.dealWithReceive(pac, myname, myhash,socket);
     }
 
-    private static void udpsend(Vector<String> meetingusers, HashMap<String, Pair<Integer,Integer> > myhash, LogAndDic m, String s, DatagramSocket socket){
+    private static void udpsend(Vector<String> meetingusers, HashMap<String, int[] > myhash, LogAndDic m, String s, DatagramSocket socket){
         if(meetingusers.size() > 0) {
             for (String uname : meetingusers) {
-                int proIndex = myhash.get(uname).getValue();
+                int proIndex = myhash.get(uname)[1];
                 if (proIndex != m.get_process()) {
                     LogAndDic.sendPac my_pac = m.PacReady(proIndex);
                     //send
-                    int client_port = myhash.get(uname).getKey();
+                    int client_port = myhash.get(uname)[0];
                     UdpSender udpSender = new UdpSender(socket, client_port, uname, myhash.size(), my_pac);
                     new Thread(udpSender).start();
                 }

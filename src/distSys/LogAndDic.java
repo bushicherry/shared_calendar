@@ -1,9 +1,5 @@
 package distSys;
 
-import com.sun.corba.se.impl.protocol.POALocalCRDImpl;
-import javafx.util.Pair;
-
-import javax.swing.text.PlainDocument;
 import java.net.DatagramSocket;
 import java.util.*;
 
@@ -120,7 +116,7 @@ public class LogAndDic {
     }
 
 
-    public void dealWithReceive(sendPac pac, String myname, HashMap<String, Pair<Integer,Integer>> myhash, DatagramSocket socket){
+    public void dealWithReceive(sendPac pac, String myname, HashMap<String, int[] > myhash, DatagramSocket socket){
         // prepare NE
         if(pac.NP.size() > 0) {
             Vector<eRecord> NE = new Vector<>();

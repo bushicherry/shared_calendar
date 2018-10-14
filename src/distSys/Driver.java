@@ -1,7 +1,5 @@
 package distSys;
 
-import com.sun.tools.corba.se.idl.StringGen;
-import javafx.util.Pair;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,7 +16,7 @@ public class Driver {
     public static void main(String[] args) throws SocketException {
         Scanner hostsInput;
         int numHosts=0;
-        HashMap<String, Pair<Integer,Integer> > hostsPorts = new HashMap<>();
+        HashMap<String, int[] > hostsPorts = new HashMap<>();
 
         // attempts to create scanner for 'knownhosts_udp.txt'
         try
@@ -34,8 +32,11 @@ public class Driver {
         // reads the file line by line
         while(hostsInput.hasNextLine()) {
             numHosts = numHosts+1;
-
-            hostsPorts.put(hostsInput.next(),new Pair<Integer,Integer>(Integer.parseInt(hostsInput.next()), numHosts));
+            int[] intArr = new int[2];
+            String tmpName = hostsInput.next();
+            intArr[0] = Integer.parseInt(hostsInput.next());
+            intArr[1] = numHosts;
+            hostsPorts.put(tmpName,intArr);
         }
 
         // test output the map
@@ -44,8 +45,8 @@ public class Driver {
         }*/
 
         final String myName = args[0];
-        final int myPort = hostsPorts.get(myName).getKey();
-        final int myIndex = hostsPorts.get(myName).getValue();
+        final int myPort = hostsPorts.get(myName)[0];
+        final int myIndex = hostsPorts.get(myName)[1];
         final int numOfHosts = numHosts;
         // set up log and dictionary
         final LogAndDic logAndDic = new LogAndDic(numHosts,myIndex);
