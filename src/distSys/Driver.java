@@ -76,7 +76,7 @@ public class Driver {
                                 // byte to sendPac
                                 boolean isCreate = false;
                                 byte[] tmp = Arrays.copyOfRange(buffer,0,64);
-                                String msg_recv = new String(tmp);
+                                String msg_recv = new String(tmp).trim();
                                 int index_recv = buffer[64];
                                 int[][] Ti_recv = new int[numOfHosts][numOfHosts];
                                 for (int i=0; i<numOfHosts; i++) {
@@ -95,7 +95,7 @@ public class Driver {
                                     int Pi_recv = buffer[offset+3];
 
                                     tmp = Arrays.copyOfRange(buffer,offset+4,offset+24);
-                                    String name_recv = new String(tmp);
+                                    String name_recv = new String(tmp).trim();
 
                                     meetingInfo op_recv;
 
@@ -114,7 +114,7 @@ public class Driver {
                                         Vector<String> users_recv = new Vector<>();
                                         while (buffer[offset]==comma) {
                                             tmp = Arrays.copyOfRange(buffer,offset+1,offset+26);
-                                            users_recv.add(new String(tmp));
+                                            users_recv.add(new String(tmp).trim());
                                             offset += 26;
                                         }
 
@@ -185,10 +185,11 @@ public class Driver {
 
                 Vector<String> participants = new Vector<>();
                 boolean selfIncluded = false;
-                while (commandS.hasNext()) {
-                    String temp = commandS.next();
-                    if (temp.equals(myName)) selfIncluded = true;
-                    participants.add(temp);
+                String users = commandS.next();
+                String[] userArray = users.split(",");
+                for (String u : userArray) {
+                    if (u.equals(myName)) selfIncluded = true;
+                    participants.add(u);
                 }
                 if (!selfIncluded) {
                     System.out.println("Unable to schedule meeting " + name +".");
