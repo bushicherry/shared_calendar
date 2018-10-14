@@ -9,6 +9,7 @@ public class LogAndDic implements Serializable {
     // define variable
     private Log PLi;
     private Dic Vi;
+    private static final long serialVersionUID = 1L;
     private final Object lock = new Object();
 
 
@@ -190,17 +191,13 @@ public class LogAndDic implements Serializable {
         PriorityQueue<meetingInfo> priQ = new PriorityQueue<>(new Comparator<meetingInfo>() {
             @Override
             public int compare(meetingInfo t1, meetingInfo t2) {
-                if(t1.day.before(t2.day)){
-                    return -1;
-                } else if(t1.start.before(t2.start)){
-                    return -1;
-                } else if(t1.name.compareTo(t2.name) < 0 ){
-                    return -1;
-                } else if(t1.name.compareTo(t2.name) == 0) {
-                    return 0;
-                } else {
-                    return 1;
-                }
+                if(t1.day.compareTo(t2.day) == 0){
+                    if(t1.start.compareTo(t2.start) == 0){
+                        if(t1.name.compareTo(t2.name) == 0){
+                            return 0;
+                        } else return t1.name.compareTo(t2.name);
+                    } else return t1.start.compareTo(t2.start);
+                } else return t1.day.compareTo(t2.day);
             }
         });
         return priQ;
