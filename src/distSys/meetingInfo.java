@@ -34,10 +34,19 @@ public class meetingInfo {
     }
 
     public meetingInfo(meetingInfo MI){
-        name = MI.name;
-        day = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE));
-        start = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE),MI.start.get(Calendar.HOUR_OF_DAY), MI.start.get(Calendar.MINUTE));
-        end = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.end.get(Calendar.HOUR_OF_DAY), MI.end.get(Calendar.MINUTE));
+        if(MI.users != null) {
+            name = MI.name;
+            day = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE));
+            start = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.start.get(Calendar.HOUR_OF_DAY), MI.start.get(Calendar.MINUTE));
+            end = new GregorianCalendar(MI.day.get(Calendar.YEAR), MI.day.get(Calendar.MONTH), MI.day.get(Calendar.DATE), MI.end.get(Calendar.HOUR_OF_DAY), MI.end.get(Calendar.MINUTE));
+            users = new Vector<>(MI.users);
+        } else {
+            name = MI.name;
+            users = null;
+            day = null;
+            start = null;
+            end = null;
+        }
     }
 
     @Override

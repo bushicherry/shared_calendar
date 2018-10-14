@@ -25,21 +25,33 @@ public class LogAndDic {
         Vi.Insert_Dic(m);
     }
 
+    public boolean check_user(String mtname, String username){
+        // true means user in the meeting, no means not in the meeting
+        for(meetingInfo m: Vi.Cld){
+            if(m.name.equals(mtname)){
+                if(m.users.contains(username)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     // Delete an event
-    public void Delete( meetingInfo s ){
-        Vi.Delete_Dic(s);
+    public void Delete( String s ){
         meetingInfo m = new meetingInfo(s);
+        Vi.Delete_Dic(m);
         PLi.Insert_E(m);
     }
 
     // check collision. True means collision happens
-    public boolean check_collison( meetingInfo m){
+    public boolean check_collision( meetingInfo m){
         //loop users in m
         for(String user: m.users){
             for(meetingInfo meeting: this.Vi.Cld){
                 if(meeting.users.contains(user)){
                     if(!Algorithm.ifFine(m, meeting)){
-                        return false;
+                        return true;
                     }
                 }
             }
@@ -64,6 +76,14 @@ public class LogAndDic {
     }
 
     // deal with rec
+    private boolean helper2(eRecord eR){
+        for(int s = 1; s < PLi.Ti.length; s++){
+            if (!has_rec(PLi.Ti, eR, s)){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     public void dealWithReceive(sendPac pac){
@@ -77,8 +97,13 @@ public class LogAndDic {
         }
         // update Vi
         for(eRecord dR: NE){
-            if(!Vi.Cld.contains(dR.op.name)){
-
+            if(!Vi.Cld.contains(dR.op)){
+                if(dR.op.users == null){
+                    System.out.println("Error: can insert because it exists");
+                }
+                else {
+                    Vi.Insert_Dic((dR.op));
+                }
             }
         }
         // update Ti
@@ -89,12 +114,13 @@ public class LogAndDic {
             }
         }
         //update Log
-
+        for(eRecord eR: NE){
+            if(!PLi.log_info.contains(eR) && helper2(eR)){
+                PLi.log_info.add(eR);
+            }
+        }
 
     }
-
-
-
 
     // view dictionary
     public void View_dic(){
@@ -109,16 +135,14 @@ public class LogAndDic {
 
     // my view: view event about me
     private boolean helper1(meetingInfo m, String name){
-        for(String s: m.users){
-            if(s.equals(name))return true;
-        }
+        if(m.users.contains(name))return true;
         return false;
     }
 
     public void myView(String name){
         int ind = 0;
         for(meetingInfo m: Vi.Cld){
-            if(helper1(m, name)){
+            if(m.users.contains(name)){
                 print_all(m);
                 ind = 1;
             }
@@ -139,6 +163,15 @@ public class LogAndDic {
             tm = b;
             P_ind = c;
         }
+        @Override
+        public boolean equals(Object o) {
+            if (o instanceof eRecord) {
+                int a = ((eRecord) o).tm;
+                int b = ((eRecord) o).P_ind;
+                return  a == tm && b == P_ind;
+            }
+            return false;
+        }
     }
 
     public class sendPac {
@@ -155,24 +188,45 @@ public class LogAndDic {
     }
 
     // print out stuff
+    private String formatTransfer(int k){
+        String s;
+        if(k<10){
+            s = "0" + String.valueOf(k);
+        } else {
+            s = String.valueOf(k);
+        }
+        return s;
+    }
+
     private void print_date(GregorianCalendar g){
-        System.out.print(g.get(Calendar.MONTH));
-        System.out.print("/" + g.get(Calendar.DATE) + "/");
+        System.out.print(formatTransfer(g.get(Calendar.MONTH)+1));
+        System.out.print("/" + formatTransfer(g.get(Calendar.DATE)) + "/");
         System.out.print(g.get(Calendar.YEAR) + " ");
     }
 
     private void print_time(GregorianCalendar g){
-        System.out.print(g.get(Calendar.HOUR_OF_DAY) + ":");
-        System.out.print(g.get(Calendar.MINUTE) + " ") ;
+        System.out.print(formatTransfer(g.get(Calendar.HOUR_OF_DAY)) + ":");
+        System.out.print(formatTransfer(g.get(Calendar.MINUTE)) + " ") ;
     }
 
     private void print_all(meetingInfo m){
-        System.out.print(m.name + " ");
-        print_date(m.day);
-        print_time(m.start);
-        print_time(m.end);
-        m.users.forEach(item-> System.out.print(item + " "));
-        System.out.println();
+        if(m.users != null) {
+            System.out.print(m.name + " ");
+            print_date(m.day);
+            print_time(m.start);
+            print_time(m.end);
+            for (int i = 0; i < m.users.size(); i++) {
+                if (i < m.users.size() - 1) {
+                    System.out.print(m.users.get(i) + ",");
+                } else {
+                    System.out.print(m.users.get(i));
+                }
+
+            }
+            System.out.println();
+        } else {
+            System.out.println(m.name);
+        }
     }
 
 
@@ -204,8 +258,19 @@ public class LogAndDic {
 
 
         private void printLog(){
-            System.out.println("View Log:");
-            log_info.forEach(item-> print_all(item.op));
+            if(log_info.size()==0){
+                System.out.println("No Log now");
+                return;
+            }
+            for(eRecord item: log_info){
+                if(item.op.users == null){
+                    System.out.print("delete ");
+                } else {
+                    System.out.print("Create ");
+                }
+                print_all(item.op);
+            }
+
         }
         // send the log to all the users.
         public void Send_log(){
@@ -241,7 +306,10 @@ public class LogAndDic {
         }
 
         private void printDic(){
-            System.out.println("View Dic:");
+            if(Cld.size()==0){
+                System.out.println("No Dic now");
+                return;
+            }
             Cld.forEach(item-> print_all(item));
         }
 
