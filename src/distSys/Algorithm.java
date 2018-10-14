@@ -19,8 +19,8 @@ public class Algorithm {
         } else {
             m.Insert(e);
             System.out.println("Meeting " + e.name + " scheduled");
-            System.out.println(e.users);
-            System.out.println(myhash);
+//            System.out.println(e.users);
+//            System.out.println(myhash);
             //send
             udpsend(e.users,myhash,m,myname, socket);
             return true;

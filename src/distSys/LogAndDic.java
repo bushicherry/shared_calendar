@@ -74,7 +74,7 @@ public class LogAndDic {
 
     // for send and receive
     public boolean has_rec(int[][] T, eRecord eR, int k){
-        return T[k][eR.P_ind] >= eR.tm;
+        return T[k-1][eR.P_ind-1] >= eR.tm;
     }
 
     public sendPac PacReady(int k){
@@ -158,7 +158,7 @@ public class LogAndDic {
         }
         // update Ti
         for (int r = 0; r < PLi.Ti.length; r++){
-            PLi.Ti[PLi.Index][r] = Math.max(PLi.Ti[PLi.Index][r], pac.Ti[pac.index][r]);
+            PLi.Ti[PLi.Index-1][r] = Math.max(PLi.Ti[PLi.Index-1][r], pac.Ti[pac.index-1][r]);
         }
         for (int r = 0; r < PLi.Ti.length; r++){
             for(int s = 0; s < PLi.Ti.length; s++){
@@ -229,7 +229,7 @@ public class LogAndDic {
             Ti = new int[t.length][t.length];
             for(int i1 = 0; i1 < t.length; i1++){
                 for(int j = 0; j < t.length; j++){
-                    Ti[i1][j] = t[i][j];
+                    Ti[i1][j] = t[i1][j];
                 }
             }
             NP = new Vector<>();
@@ -305,7 +305,7 @@ public class LogAndDic {
         private void Insert_E( meetingInfo e ) {
             synchronized (lock) {
                 CurTmstmp++;
-                Ti[Index][Index] = CurTmstmp;
+                Ti[Index-1][Index-1] = CurTmstmp;
                 // create event record
                 log_info.add(new eRecord(e, CurTmstmp, Index));
             }
