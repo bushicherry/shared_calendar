@@ -61,17 +61,18 @@ public class Driver {
                     DatagramSocket socket = new DatagramSocket(myPort);
 
                     while (true) {
+                        byte[] buffer = new byte[65507];
+                        DatagramPacket packet = new DatagramPacket(buffer,0,buffer.length);
+                        try {
+                            socket.receive(packet);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            return;
+                        }
+
                         Runnable recvMsg = new Runnable() {
                             @Override
                             public synchronized void run() {
-                                byte[] buffer = new byte[65507];
-                                DatagramPacket packet = new DatagramPacket(buffer,0,buffer.length);
-                                try {
-                                    socket.receive(packet);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                    return;
-                                }
 
                                 // byte to sendPac
                                 boolean isCreate = false;
@@ -206,7 +207,8 @@ public class Driver {
 
             }
             else if (command.equals("cancel")) {
-
+                String name = commandS.next();
+                Algorithm.Cancel(logAndDic,name,myName);
             }
             else if (command.equals("view")) {
                 logAndDic.View_dic();
