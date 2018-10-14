@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3ef749e-a731-4f7a-843a-b87f15240ac8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/distSys/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distSys/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distSys/LogAndDic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distSys/LogAndDic.java" afterDir="false" />
+    <list default="true" id="a3ef749e-a731-4f7a-843a-b87f15240ac8" name="Default Changelist" comment="new">
+      <change afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/Algorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/Algorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Dic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Dic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$eRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$eRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/meetingInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/meetingInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/udpSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/udpSender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,17 +29,18 @@
     <session id="221516771">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
+          <entry key="gitignore" value="1" />
           <entry key="iml" value="4" />
-          <entry key="java" value="17" />
+          <entry key="java" value="26" />
           <entry key="md" value="1" />
           <entry key="sh" value="6" />
           <entry key="xml" value="2" />
@@ -40,15 +50,15 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="4" />
-          <entry key="JAVA" value="17" />
+          <entry key="JAVA" value="26" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="PLAIN_TEXT" value="7" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4361" />
+          <entry key="JAVA" value="9434" />
           <entry key="PLAIN_TEXT" value="205" />
         </counts>
       </usages-collector>
@@ -57,7 +67,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="12" />
-          <entry key="java" value="4361" />
+          <entry key="java" value="9434" />
           <entry key="sh" value="151" />
           <entry key="txt" value="42" />
         </counts>
@@ -65,103 +75,120 @@
       <usages-collector id="statistics.spring.boot.run.usages" />
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
-    <session id="1105629500">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="512" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="512" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.spring.boot.run.usages" />
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.spring.boot.mvc.usages" />
-    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="107" column="2" lean-forward="true" selection-start-line="107" selection-start-column="2" selection-end-line="107" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/distSys/UdpSender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-345">
-              <caret line="117" column="15" lean-forward="true" selection-start-line="117" selection-start-column="15" selection-end-line="117" selection-end-column="15" />
-              <folding>
-                <element signature="e#2383#2384#0" expanded="true" />
-                <element signature="e#2412#2413#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/distSys/Algorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.6634769">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="990">
+                  <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/distSys/UdpSender.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-634">
+                  <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#2181#2182#0" expanded="true" />
+                    <element signature="e#2211#2212#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="233">
+                  <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
+                  <folding>
+                    <element signature="e#3417#3418#0" expanded="true" />
+                    <element signature="e#3446#3447#0" expanded="true" />
+                    <element signature="e#7721#7722#0" expanded="true" />
+                    <element signature="e#7765#7766#0" expanded="true" />
+                    <element signature="e#7814#7815#0" expanded="true" />
+                    <element signature="e#7848#7849#0" expanded="true" />
+                    <element signature="e#7917#7918#0" expanded="true" />
+                    <element signature="e#7954#7955#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/distSys/Algorithm.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="44">
+                  <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/udpTest/Sender.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="219">
+                  <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/udpTest/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="322">
+                  <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -172,6 +199,13 @@
     </option>
   </component>
   <component name="FindInProjectRecents">
+    <findStrings>
+      <find>pac</find>
+      <find>sendPac</find>
+      <find>[][]</find>
+      <find>args[0]</find>
+      <find>deal</find>
+    </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
@@ -191,8 +225,15 @@
         <option value="$PROJECT_DIR$/src/distSys/networking/udp/udpListener.java" />
         <option value="$PROJECT_DIR$/src/distSys/udpSender.java" />
         <option value="$PROJECT_DIR$/src/distSys/meetingInfo.java" />
-        <option value="$PROJECT_DIR$/src/distSys/Driver.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/test.java" />
         <option value="$PROJECT_DIR$/src/distSys/LogAndDic.java" />
+        <option value="$PROJECT_DIR$/src/udpTest.java" />
+        <option value="$PROJECT_DIR$/src/udpTest/Listener.java" />
+        <option value="$PROJECT_DIR$/src/udpTest/Main.java" />
+        <option value="$PROJECT_DIR$/src/udpTest/Sender.java" />
+        <option value="$PROJECT_DIR$/src/distSys/UdpSender.java" />
+        <option value="$PROJECT_DIR$/src/distSys/Driver.java" />
       </list>
     </option>
   </component>
@@ -203,10 +244,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="15" />
+    <option name="x" value="238" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
-    <option name="height" value="826" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -225,7 +266,7 @@
             <path>
               <item name="shared_calendar" type="b2602c69:ProjectViewProjectNode" />
               <item name="shared_calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shared_calendar" type="b2602c69:ProjectViewProjectNode" />
@@ -238,6 +279,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="distSys" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="shared_calendar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shared_calendar" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="udpTest" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -247,10 +294,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539472866517" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539545696223" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -286,6 +333,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="meetingInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="distSys.meetingInfo" />
+      <module name="shared_calendar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="distSys.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test" />
       <module name="shared_calendar" />
@@ -295,11 +355,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.meetingInfo" />
       <item itemvalue="Application.test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.test" />
+        <item itemvalue="Application.meetingInfo" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -315,8 +377,9 @@
       <option name="presentableId" value="Default" />
       <updated>1539021438434</updated>
       <workItem from="1539021439767" duration="14760000" />
-      <workItem from="1539123610779" duration="30365000" />
-      <workItem from="1539470367170" duration="2397000" />
+      <workItem from="1539123610779" duration="32575000" />
+      <workItem from="1539472299341" duration="4017000" />
+      <workItem from="1539480480945" duration="35414000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize">
       <created>1539024397558</created>
@@ -375,17 +438,73 @@
       <updated>1539462405174</updated>
     </task>
     <task id="LOCAL-00009" summary="new">
-      <created>1539471045107</created>
+      <created>1539467947303</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1539471045107</updated>
+      <updated>1539467947303</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new">
+      <created>1539470856913</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1539470856913</updated>
+    </task>
+    <task id="LOCAL-00011" summary="new">
+      <created>1539491724830</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1539491724830</updated>
+    </task>
+    <task id="LOCAL-00012" summary="new">
+      <created>1539493613730</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1539493613730</updated>
+    </task>
+    <task id="LOCAL-00013" summary="new">
+      <created>1539501901588</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1539501901589</updated>
+    </task>
+    <task id="LOCAL-00014" summary="new">
+      <created>1539529812107</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1539529812107</updated>
+    </task>
+    <task id="LOCAL-00015" summary="new">
+      <created>1539540684794</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1539540684794</updated>
+    </task>
+    <task id="LOCAL-00016" summary="new">
+      <created>1539544664091</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1539544664091</updated>
+    </task>
+    <task id="LOCAL-00017" summary="new">
+      <created>1539545529433</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1539545529433</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47522000" />
+    <option name="totallyTimeSpent" value="86815000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,10 +516,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="15" y="23" width="1400" height="826" extended-state="0" />
-    <editor active="true" />
+    <frame x="238" y="23" width="1400" height="1027" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16863033" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17083947" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -410,16 +528,16 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32833788" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32960895" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4301676" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4992636" weight="0.32833788" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32833788" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4992636" weight="0.32960895" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32941177" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32833788" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5022091" side_tool="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49779087" weight="0.32833788" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49852726" visible="true" weight="0.27058825" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5014728" side_tool="true" weight="0.27058825" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49779087" weight="0.32960895" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -430,6 +548,37 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17083947" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32960895" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4992636" weight="0.32960895" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32960895" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32960895" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5022091" side_tool="true" weight="0.32960895" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49779087" weight="0.32960895" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -480,17 +629,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="107" column="2" lean-forward="true" selection-start-line="107" selection-start-column="2" selection-end-line="107" selection-end-column="2" />
+        <state relative-caret-position="105">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/UdpSender.java">
+    <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="233">
+          <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
+          <folding>
+            <element signature="e#3417#3418#0" expanded="true" />
+            <element signature="e#3446#3447#0" expanded="true" />
+            <element signature="e#7721#7722#0" expanded="true" />
+            <element signature="e#7765#7766#0" expanded="true" />
+            <element signature="e#7814#7815#0" expanded="true" />
+            <element signature="e#7848#7849#0" expanded="true" />
+            <element signature="e#7917#7918#0" expanded="true" />
+            <element signature="e#7954#7955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/udpTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/udpTest/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/udpTest/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -499,33 +692,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/distSys/Algorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="117" column="15" lean-forward="true" selection-start-line="117" selection-start-column="15" selection-end-line="117" selection-end-column="15" />
+        <state relative-caret-position="44">
+          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
-            <element signature="e#2383#2384#0" expanded="true" />
-            <element signature="e#2412#2413#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/udpTest/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+        <state relative-caret-position="210">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/distSys/UdpSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-634">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2181#2182#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
