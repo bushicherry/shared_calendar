@@ -8,7 +8,7 @@ public class LogAndDic {
     // define variable
     private Log PLi;
     private Dic Vi;
-    private Object lock = new Object();
+    private final Object lock = new Object();
 
 
     public int get_process(){
@@ -150,8 +150,13 @@ public class LogAndDic {
                 }
 
                 // update log
-                if(!PLi.log_info.contains(dR) && helper2(dR)){
+                if(!PLi.log_info.contains(dR)){
                     PLi.log_info.add(dR);
+                }
+                for(eRecord neR: PLi.log_info){
+                    if(!helper2(neR)){
+                        PLi.log_info.remove(neR);
+                    }
                 }
             }
 
@@ -178,15 +183,35 @@ public class LogAndDic {
 
     }
 
-    // my view: view event about me
-    private boolean helper1(meetingInfo m, String name){
-        if(m.users.contains(name))return true;
-        return false;
+    // priority queue
+    private PriorityQueue<meetingInfo> get_pQ(){
+        PriorityQueue<meetingInfo> priQ = new PriorityQueue<>(new Comparator<meetingInfo>() {
+            @Override
+            public int compare(meetingInfo t1, meetingInfo t2) {
+                if(t1.day.before(t2.day)){
+                    return -1;
+                } else if(t1.start.before(t2.start)){
+                    return -1;
+                } else if(t1.name.compareTo(t2.name) < 0 ){
+                    return -1;
+                } else if(t1.name.compareTo(t2.name) == 0) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        return priQ;
     }
+
+
 
     public void myView(String name){
         int ind = 0;
-        for(meetingInfo m: Vi.Cld){
+        PriorityQueue<meetingInfo> priQ = get_pQ();
+        priQ.addAll(Vi.Cld);
+
+        for(meetingInfo m: priQ){
             if(m.users.contains(name)){
                 print_all(m);
                 ind = 1;
@@ -217,6 +242,7 @@ public class LogAndDic {
             }
             return false;
         }
+
     }
 
     public static class sendPac {
@@ -314,11 +340,30 @@ public class LogAndDic {
 
         private void printLog(){
             synchronized (lock) {
+                PriorityQueue<eRecord> priQ = new PriorityQueue<>(new Comparator<eRecord>() {
+                    @Override
+                    public int compare(eRecord t1, eRecord t2) {
+                        if(t1.op.day.before(t2.op.day)){
+                            return -1;
+                        } else if(t1.op.start.before(t2.op.start)){
+                            return -1;
+                        } else if(t1.op.name.compareTo(t2.op.name) < 0 ){
+                            return -1;
+                        } else if(t1.op.name.compareTo(t2.op.name) == 0) {
+                            return 0;
+                        } else {
+                            return 1;
+                        }
+                    }
+                });
+                priQ.addAll(log_info);
+
                 if (log_info.size() == 0) {
                     System.out.println("No Log now");
                     return;
                 }
-                for (eRecord item : log_info) {
+
+                for (eRecord item : priQ) {
                     if (item.op.users == null) {
                         System.out.print("delete ");
                     } else {
@@ -362,7 +407,11 @@ public class LogAndDic {
                 return;
             }
             synchronized (lock) {
-                Cld.forEach(item -> print_all(item));
+                PriorityQueue<meetingInfo> priQ = get_pQ();
+                priQ.addAll(Cld);
+                for(meetingInfo e: priQ){
+                    print_all(e);
+                }
             }
         }
 
