@@ -97,7 +97,7 @@ public class Driver {
 
                                     meetingInfo op_recv;
 
-                                    if (buffer[offset+24]!=comma) {
+                                    if (buffer[offset+24]!=(byte)0) {
                                         isCreate = true;
                                         int month_recv = buffer[offset+24];
                                         int day_recv = buffer[offset+25];
