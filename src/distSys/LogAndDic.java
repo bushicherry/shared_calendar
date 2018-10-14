@@ -153,12 +153,12 @@ public class LogAndDic {
     }
 
     // define record
-    public class eRecord {
+    public static class eRecord {
         meetingInfo op; // operation type
         int tm; // time stamp
         int P_ind; // Process index, Pi, that i
 
-        private eRecord(meetingInfo a, int b , int c){
+        eRecord(meetingInfo a, int b, int c){
             op = new meetingInfo(a);
             tm = b;
             P_ind = c;
@@ -174,7 +174,7 @@ public class LogAndDic {
         }
     }
 
-    public class sendPac {
+    public static class sendPac {
         String msg;
         int[][] Ti;
         Vector<eRecord> NP;
