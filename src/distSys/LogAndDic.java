@@ -51,12 +51,12 @@ public class LogAndDic {
             for(meetingInfo meeting: this.Vi.Cld){
                 if(meeting.users.contains(user)){
                     if(!Algorithm.ifFine(m, meeting)){
-                        return false;
+                        return true;
                     }
                 }
             }
         }
-        return true;
+        return false;
     }
 
     // for send and receive
@@ -188,24 +188,45 @@ public class LogAndDic {
     }
 
     // print out stuff
+    private String formatTransfer(int k){
+        String s;
+        if(k<10){
+            s = "0" + String.valueOf(k);
+        } else {
+            s = String.valueOf(k);
+        }
+        return s;
+    }
+
     private void print_date(GregorianCalendar g){
-        System.out.print(g.get(Calendar.MONTH));
-        System.out.print("/" + g.get(Calendar.DATE) + "/");
+        System.out.print(formatTransfer(g.get(Calendar.MONTH)+1));
+        System.out.print("/" + formatTransfer(g.get(Calendar.DATE)) + "/");
         System.out.print(g.get(Calendar.YEAR) + " ");
     }
 
     private void print_time(GregorianCalendar g){
-        System.out.print(g.get(Calendar.HOUR_OF_DAY) + ":");
-        System.out.print(g.get(Calendar.MINUTE) + " ") ;
+        System.out.print(formatTransfer(g.get(Calendar.HOUR_OF_DAY)) + ":");
+        System.out.print(formatTransfer(g.get(Calendar.MINUTE)) + " ") ;
     }
 
     private void print_all(meetingInfo m){
-        System.out.print(m.name + " ");
-        print_date(m.day);
-        print_time(m.start);
-        print_time(m.end);
-        m.users.forEach(item-> System.out.print(item + ", "));
-        System.out.println();
+        if(m.users != null) {
+            System.out.print(m.name + " ");
+            print_date(m.day);
+            print_time(m.start);
+            print_time(m.end);
+            for (int i = 0; i < m.users.size(); i++) {
+                if (i < m.users.size() - 1) {
+                    System.out.print(m.users.get(i) + ",");
+                } else {
+                    System.out.print(m.users.get(i));
+                }
+
+            }
+            System.out.println();
+        } else {
+            System.out.println(m.name);
+        }
     }
 
 
@@ -237,6 +258,10 @@ public class LogAndDic {
 
 
         private void printLog(){
+            if(log_info.size()==0){
+                System.out.println("No Log now");
+                return;
+            }
             for(eRecord item: log_info){
                 if(item.op.users == null){
                     System.out.print("delete ");
@@ -281,6 +306,10 @@ public class LogAndDic {
         }
 
         private void printDic(){
+            if(Cld.size()==0){
+                System.out.println("No Dic now");
+                return;
+            }
             Cld.forEach(item-> print_all(item));
         }
 
