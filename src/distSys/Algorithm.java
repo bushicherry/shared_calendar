@@ -42,10 +42,9 @@ public class Algorithm {
         }
     }
 
-    public static boolean Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, Pair<Integer,Integer> > myhash){
+    public void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, Pair<Integer,Integer> > myhash){
         //check pac's avalable:
         m.dealWithReceive(pac, myname, myhash);
-        return true;
     }
 
     private static void udpsend(Vector<String> meetingusers, HashMap<String, Pair<Integer,Integer> > myhash, LogAndDic m, String s){

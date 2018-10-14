@@ -26,7 +26,6 @@ public class LogAndDic {
         return users;
     }
 
-
     // initialization
     public LogAndDic(int n, int i){
         PLi = new Log(n,i);
