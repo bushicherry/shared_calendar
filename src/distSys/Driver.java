@@ -134,7 +134,7 @@ public class Driver {
                                 }
                                 LogAndDic.sendPac pac = new LogAndDic.sendPac(msg_recv,Ti_recv,NP_recv,index_recv);
 
-                                logAndDic.dealWithReceive(pac);
+                                Algorithm.Onrec(logAndDic, pac, myName, hostsPorts);
                             }
                         };
 
@@ -202,13 +202,14 @@ public class Driver {
                 GregorianCalendar gEndTime = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DATE), endTime.getHour(), endTime.getMinute());
                 meetingInfo m = new meetingInfo(name, gDate, gStartTime, gEndTime, participants);
 
-                Algorithm.Insert(logAndDic,m);
+                Algorithm.Insert(logAndDic, m, hostsPorts, myName);
+
 
 
             }
             else if (command.equals("cancel")) {
                 String name = commandS.next();
-                Algorithm.Cancel(logAndDic,name,myName);
+                Algorithm.Cancel(logAndDic,name,myName,hostsPorts);
             }
             else if (command.equals("view")) {
                 logAndDic.View_dic();

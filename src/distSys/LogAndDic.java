@@ -1,6 +1,7 @@
 package distSys;
 
 import com.sun.corba.se.impl.protocol.POALocalCRDImpl;
+import javafx.util.Pair;
 
 import javax.swing.text.PlainDocument;
 import java.util.*;
@@ -11,6 +12,19 @@ public class LogAndDic {
     private Log PLi;
     private Dic Vi;
 
+    public int get_process(){
+        return PLi.Index;
+    }
+
+    public Vector<String> get_user(String meetingname){
+        Vector<String> users = new Vector<>();
+        for(meetingInfo m: Vi.Cld){
+            if(m.name.equals(meetingname)){
+                users.addAll(m.users);
+            }
+        }
+        return users;
+    }
 
 
     // initialization
@@ -45,19 +59,20 @@ public class LogAndDic {
     }
 
     // check collision. True means collision happens
-    public boolean check_collision( meetingInfo m){
+    public meetingInfo check_collision( meetingInfo m){
         //loop users in m
         for(String user: m.users){
             for(meetingInfo meeting: this.Vi.Cld){
                 if(meeting.users.contains(user)){
                     if(!Algorithm.ifFine(m, meeting)){
-                        return true;
+                        return meeting;
                     }
                 }
             }
         }
-        return false;
+        return null;
     }
+
 
     // for send and receive
     public boolean has_rec(int[][] T, eRecord eR, int k){
@@ -85,8 +100,25 @@ public class LogAndDic {
         return false;
     }
 
+    private boolean helper3(Vector<eRecord> NE, String meetingname){
+        for(eRecord eR: NE){
+            if(eR.op.name.equals(meetingname)){
+                if(eR.op.users == null){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    // decide the hexi... order
+    private meetingInfo helper4(meetingInfo m1, meetingInfo m2){
+        if(m1.name.compareTo(m2.name) > 0){
+            return m2;
+        } else return m1;
+    }
 
-    public void dealWithReceive(sendPac pac){
+
+    public void dealWithReceive(sendPac pac, String myname, HashMap<String, Pair<Integer,Integer>> myhash){
         // prepare NE
         if(pac.NP.size() > 0) {
             Vector<eRecord> NE = new Vector<>();
@@ -100,28 +132,41 @@ public class LogAndDic {
             for (eRecord dR : NE) {
                 if (!Vi.Cld.contains(dR.op)) {
                     if (dR.op.users == null) {
-                        System.out.println("Error: can insert because it exists");
+                        System.out.println("Error: can't cancel because it doesn't exists");
                     } else {
-                        Vi.Insert_Dic((dR.op));
+                        if(!helper3(NE, dR.op.name)) {// no delete in NE
+                            // collision meeting coll)m
+                            meetingInfo coll_m = check_collision(dR.op);
+                            //insert
+                            Vi.Insert_Dic((dR.op));
+                            //check collision
+                            if(coll_m != null){
+                                Algorithm.Cancel(this, coll_m.name, myname, myhash );
+                            }
+                        }
+                    }
+                } else {
+                    if(dR.op.users == null){
+                        Vi.Delete_Dic(dR.op);
                     }
                 }
-            }
-            //update Log
-            for(eRecord eR: NE){
-                if(!PLi.log_info.contains(eR) && helper2(eR)){
-                    PLi.log_info.add(eR);
+
+                // update log
+                if(!PLi.log_info.contains(dR) && helper2(dR)){
+                    PLi.log_info.add(dR);
                 }
             }
+
         }
         // update Ti
         for (int r = 0; r < PLi.Ti.length; r++){
             PLi.Ti[PLi.Index][r] = Math.max(PLi.Ti[PLi.Index][r], pac.Ti[pac.index][r]);
+        }
+        for (int r = 0; r < PLi.Ti.length; r++){
             for(int s = 0; s < PLi.Ti.length; s++){
                 PLi.Ti[r][s] = Math.max(PLi.Ti[r][s], pac.Ti[r][s]);
             }
         }
-
-
     }
 
     // view dictionary
