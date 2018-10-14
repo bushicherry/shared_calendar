@@ -25,15 +25,27 @@ public class LogAndDic {
         Vi.Insert_Dic(m);
     }
 
+    public boolean check_user(String mtname, String username){
+        // true means user in the meeting, no means not in the meeting
+        for(meetingInfo m: Vi.Cld){
+            if(m.name.equals(mtname)){
+                if(m.users.contains(username)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     // Delete an event
-    public void Delete( meetingInfo s ){
-        Vi.Delete_Dic(s);
-        meetingInfo m = new meetingInfo(s.name);
+    public void Delete( String s ){
+        meetingInfo m = new meetingInfo(s);
+        Vi.Delete_Dic(m);
         PLi.Insert_E(m);
     }
 
     // check collision. True means collision happens
-    public boolean check_collison( meetingInfo m){
+    public boolean check_collision( meetingInfo m){
         //loop users in m
         for(String user: m.users){
             for(meetingInfo meeting: this.Vi.Cld){
@@ -44,7 +56,7 @@ public class LogAndDic {
                 }
             }
         }
-        return false;
+        return true;
     }
 
     // for send and receive
@@ -123,16 +135,14 @@ public class LogAndDic {
 
     // my view: view event about me
     private boolean helper1(meetingInfo m, String name){
-        for(String s: m.users){
-            if(s.equals(name))return true;
-        }
+        if(m.users.contains(name))return true;
         return false;
     }
 
     public void myView(String name){
         int ind = 0;
         for(meetingInfo m: Vi.Cld){
-            if(helper1(m, name)){
+            if(m.users.contains(name)){
                 print_all(m);
                 ind = 1;
             }
@@ -194,7 +204,7 @@ public class LogAndDic {
         print_date(m.day);
         print_time(m.start);
         print_time(m.end);
-        m.users.forEach(item-> System.out.print(item + " "));
+        m.users.forEach(item-> System.out.print(item + ", "));
         System.out.println();
     }
 
@@ -227,8 +237,15 @@ public class LogAndDic {
 
 
         private void printLog(){
-            System.out.println("View Log:");
-            log_info.forEach(item-> print_all(item.op));
+            for(eRecord item: log_info){
+                if(item.op.users == null){
+                    System.out.print("delete ");
+                } else {
+                    System.out.print("Create ");
+                }
+                print_all(item.op);
+            }
+
         }
         // send the log to all the users.
         public void Send_log(){
@@ -264,7 +281,6 @@ public class LogAndDic {
         }
 
         private void printDic(){
-            System.out.println("View Dic:");
             Cld.forEach(item-> print_all(item));
         }
 
