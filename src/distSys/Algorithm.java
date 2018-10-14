@@ -30,5 +30,13 @@ public class Algorithm {
         }
     }
 
+    public static boolean Onrec(LogAndDic m, LogAndDic.sendPac pac){
+        //check pac's avalable:
+        m.dealWithReceive(pac);
+        return true;
+    }
+
+
+
 }
 

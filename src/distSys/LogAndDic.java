@@ -88,21 +88,28 @@ public class LogAndDic {
 
     public void dealWithReceive(sendPac pac){
         // prepare NE
-        Vector<eRecord> NE = new Vector<>();
-        for(eRecord fR: pac.NP){
-            if(!has_rec(PLi.Ti, fR, PLi.Index)){
-                // which means It's in NE
-                NE.add(fR);
-            }
-        }
-        // update Vi
-        for(eRecord dR: NE){
-            if(!Vi.Cld.contains(dR.op)){
-                if(dR.op.users == null){
-                    System.out.println("Error: can insert because it exists");
+        if(pac.NP.size() > 0) {
+            Vector<eRecord> NE = new Vector<>();
+            for (eRecord fR : pac.NP) {
+                if (!has_rec(PLi.Ti, fR, PLi.Index)) {
+                    // which means It's in NE
+                    NE.add(fR);
                 }
-                else {
-                    Vi.Insert_Dic((dR.op));
+            }
+            // update Vi
+            for (eRecord dR : NE) {
+                if (!Vi.Cld.contains(dR.op)) {
+                    if (dR.op.users == null) {
+                        System.out.println("Error: can insert because it exists");
+                    } else {
+                        Vi.Insert_Dic((dR.op));
+                    }
+                }
+            }
+            //update Log
+            for(eRecord eR: NE){
+                if(!PLi.log_info.contains(eR) && helper2(eR)){
+                    PLi.log_info.add(eR);
                 }
             }
         }
@@ -113,12 +120,7 @@ public class LogAndDic {
                 PLi.Ti[r][s] = Math.max(PLi.Ti[r][s], pac.Ti[r][s]);
             }
         }
-        //update Log
-        for(eRecord eR: NE){
-            if(!PLi.log_info.contains(eR) && helper2(eR)){
-                PLi.log_info.add(eR);
-            }
-        }
+
 
     }
 
@@ -158,7 +160,7 @@ public class LogAndDic {
         int tm; // time stamp
         int P_ind; // Process index, Pi, that i
 
-        eRecord(meetingInfo a, int b, int c){
+        public eRecord(meetingInfo a, int b, int c){
             op = new meetingInfo(a);
             tm = b;
             P_ind = c;
