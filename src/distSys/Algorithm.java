@@ -42,7 +42,7 @@ public class Algorithm {
         }
     }
 
-    public void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, Pair<Integer,Integer> > myhash){
+    public static void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, Pair<Integer,Integer> > myhash){
         //check pac's avalable:
         m.dealWithReceive(pac, myname, myhash);
     }
