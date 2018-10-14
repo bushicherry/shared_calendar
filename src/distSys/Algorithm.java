@@ -20,6 +20,8 @@ public class Algorithm {
         } else {
             m.Insert(e);
             System.out.println("Meeting " + e.name + " scheduled");
+            System.out.println(e.users);
+            System.out.println(myhash);
             //send
             udpsend(e.users,myhash,m,myname);
             return true;
@@ -48,20 +50,20 @@ public class Algorithm {
     }
 
     private static void udpsend(Vector<String> meetingusers, HashMap<String, Pair<Integer,Integer> > myhash, LogAndDic m, String s){
-        if(meetingusers.size() > 0) {
-            for (String uname : meetingusers) {
-                int proIndex = myhash.get(uname).getValue();
-                if (proIndex != m.get_process()) {
-                    LogAndDic.sendPac my_pac = m.PacReady(proIndex);
-                    //send
-                    int my_port = myhash.get(s).getKey();
-                    int client_port = myhash.get(uname).getKey();
-
-                    UdpSender udpSender = new UdpSender(my_port, client_port, uname, myhash.size(), my_pac);
-                    new Thread(udpSender).start();
-                }
-            }
-        }
+//        if(meetingusers.size() > 0) {
+//            for (String uname : meetingusers) {
+//                int proIndex = myhash.get(uname).getValue();
+//                if (proIndex != m.get_process()) {
+//                    LogAndDic.sendPac my_pac = m.PacReady(proIndex);
+//                    //send
+//                    int my_port = myhash.get(s).getKey();
+//                    int client_port = myhash.get(uname).getKey();
+//
+//                    UdpSender udpSender = new UdpSender(my_port, client_port, uname, myhash.size(), my_pac);
+//                    new Thread(udpSender).start();
+//                }
+//            }
+//        }
     }
 
 

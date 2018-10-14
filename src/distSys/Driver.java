@@ -166,8 +166,15 @@ public class Driver {
 
                 String startStr =  commandS.next();
                 String endStr = commandS.next();
-                LocalTime startTime = LocalTime.parse(startStr);
-                LocalTime endTime = LocalTime.parse(endStr);
+                LocalTime startTime;
+                LocalTime endTime;
+                try {
+                    startTime = LocalTime.parse(startStr);
+                    endTime = LocalTime.parse(endStr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    continue;
+                }
                 // check if the times are in 30 minutes increments
                 if (startTime.getMinute()%30 != 0 || endTime.getMinute()%30 != 0) {
                     System.out.println("Unable to schedule meeting " + name +".");
