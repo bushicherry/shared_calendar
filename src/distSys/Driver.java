@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -156,30 +158,47 @@ public class Driver {
             command = commandS.next();
             if (command.equals("schedule")) {
                 String name = commandS.next();
-                Date date = new Date(commandS.next());
-                LocalTime startTime = LocalTime.parse(commandS.next());
-                LocalTime endTime = LocalTime.parse(commandS.next());
+
+                String dateStr = commandS.next();
+                String pattern = "MM/dd/yyyy";
+                Calendar date = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat(pattern, Locale.ENGLISH);
+                try {
+                    date.setTime(sdf.parse(dateStr));// all done
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    continue;
+                }
+
+                String startStr =  commandS.next();
+                String endStr = commandS.next();
+                LocalTime startTime = LocalTime.parse(startStr);
+                LocalTime endTime = LocalTime.parse(endStr);
                 // check if the times are in 30 minutes increments
                 if (startTime.getMinute()%30 != 0 || endTime.getMinute()%30 != 0) {
                     System.out.println("Unable to schedule meeting " + name +".");
+                    continue;
+                } else if( startTime.isAfter(endTime) ){
+                    System.out.println("Unable to schedule meeting <Start time after end time>" + name +".");
                     continue;
                 }
 
                 Vector<String> participants = new Vector<>();
                 boolean selfIncluded = false;
                 while (commandS.hasNext()) {
-                    if (commandS.next().equals(myName)) selfIncluded = true;
-                    participants.add(commandS.next());
+                    String temp = commandS.next();
+                    if (temp.equals(myName)) selfIncluded = true;
+                    participants.add(temp);
                 }
                 if (!selfIncluded) {
                     System.out.println("Unable to schedule meeting " + name +".");
                     continue;
                 }
 
-                GregorianCalendar gDate = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay());
-                GregorianCalendar gStartTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),startTime.getHour(),startTime.getMinute());
-                GregorianCalendar gEndTime = new GregorianCalendar(date.getYear(),date.getMonth(),date.getDay(),endTime.getHour(),endTime.getMinute());
-                meetingInfo m = new meetingInfo(name,gDate,gStartTime,gEndTime,participants);
+                GregorianCalendar gDate = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DATE));
+                GregorianCalendar gStartTime = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DATE), startTime.getHour(), startTime.getMinute());
+                GregorianCalendar gEndTime = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DATE), endTime.getHour(), endTime.getMinute());
+                meetingInfo m = new meetingInfo(name, gDate, gStartTime, gEndTime, participants);
 
                 Algorithm.Insert(logAndDic,m);
 

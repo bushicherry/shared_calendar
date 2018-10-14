@@ -158,7 +158,7 @@ public class LogAndDic {
         int tm; // time stamp
         int P_ind; // Process index, Pi, that i
 
-        public eRecord(meetingInfo a, int b , int c){
+        eRecord(meetingInfo a, int b, int c){
             op = new meetingInfo(a);
             tm = b;
             P_ind = c;
