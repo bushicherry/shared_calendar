@@ -132,7 +132,7 @@ public class Driver {
                             }
                             LogAndDic.sendPac pac = new LogAndDic.sendPac(msg_recv,Ti_recv,NP_recv,index_recv);
 
-                            Algorithm.Onrec(logAndDic, pac, myName, hostsPorts);
+                            Algorithm.Onrec(logAndDic, pac, myName, hostsPorts, socket);
                         }
                     };
 

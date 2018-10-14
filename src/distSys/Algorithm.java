@@ -2,6 +2,7 @@ package distSys;
 
 import javafx.util.Pair;
 
+import javax.xml.crypto.Data;
 import java.net.DatagramSocket;
 import java.util.HashMap;
 import java.util.Vector;
@@ -45,9 +46,9 @@ public class Algorithm {
         }
     }
 
-    public static void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, Pair<Integer,Integer> > myhash){
+    public static void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, Pair<Integer,Integer> > myhash, DatagramSocket socket){
         //check pac's avalable:
-        m.dealWithReceive(pac, myname, myhash);
+        m.dealWithReceive(pac, myname, myhash,socket);
     }
 
     private static void udpsend(Vector<String> meetingusers, HashMap<String, Pair<Integer,Integer> > myhash, LogAndDic m, String s, DatagramSocket socket){
