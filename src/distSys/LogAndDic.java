@@ -4,6 +4,7 @@ import com.sun.corba.se.impl.protocol.POALocalCRDImpl;
 import javafx.util.Pair;
 
 import javax.swing.text.PlainDocument;
+import java.net.DatagramSocket;
 import java.util.*;
 
 public class LogAndDic {
@@ -11,6 +12,8 @@ public class LogAndDic {
     // define variable
     private Log PLi;
     private Dic Vi;
+    private Object lock = new Object();
+
 
     public int get_process(){
         return PLi.Index;
@@ -117,7 +120,7 @@ public class LogAndDic {
     }
 
 
-    public void dealWithReceive(sendPac pac, String myname, HashMap<String, Pair<Integer,Integer>> myhash){
+    public void dealWithReceive(sendPac pac, String myname, HashMap<String, Pair<Integer,Integer>> myhash, DatagramSocket socket){
         // prepare NE
         if(pac.NP.size() > 0) {
             Vector<eRecord> NE = new Vector<>();
@@ -140,7 +143,7 @@ public class LogAndDic {
                             Vi.Insert_Dic((dR.op));
                             //check collision
                             if(coll_m != null){
-                                Algorithm.Cancel(this, coll_m.name, myname, myhash );
+                                Algorithm.Cancel(this, coll_m.name, myname, myhash, socket);
                             }
                         }
                     }
@@ -225,10 +228,18 @@ public class LogAndDic {
         int[][] Ti;
         Vector<eRecord> NP;
         int index;
-        public sendPac(String m, int[][] t, Vector<LogAndDic.eRecord> N, int i){
+        public sendPac(String m, int[][] t, Vector<eRecord> N, int i){
             msg = m;
-            Ti = t;
-            NP = N;
+            Ti = new int[t.length][t.length];
+            for(int i1 = 0; i1 < t.length; i1++){
+                for(int j = 0; j < t.length; j++){
+                    Ti[i1][j] = t[i][j];
+                }
+            }
+            NP = new Vector<>();
+            for(eRecord eR: N){
+                NP.add(new eRecord(eR.op, eR.tm, eR.P_ind));
+            }
             index = i;
         }
     }
@@ -296,36 +307,30 @@ public class LogAndDic {
 
         // When insert event
         private void Insert_E( meetingInfo e ) {
-            CurTmstmp++;
-            Ti[Index][Index] = CurTmstmp;
-            // create event record
-            log_info.add(new eRecord(e, CurTmstmp, Index));
+            synchronized (lock) {
+                CurTmstmp++;
+                Ti[Index][Index] = CurTmstmp;
+                // create event record
+                log_info.add(new eRecord(e, CurTmstmp, Index));
+            }
         }
 
 
         private void printLog(){
-            if(log_info.size()==0){
-                System.out.println("No Log now");
-                return;
-            }
-            for(eRecord item: log_info){
-                if(item.op.users == null){
-                    System.out.print("delete ");
-                } else {
-                    System.out.print("Create ");
+            synchronized (lock) {
+                if (log_info.size() == 0) {
+                    System.out.println("No Log now");
+                    return;
                 }
-                print_all(item.op);
+                for (eRecord item : log_info) {
+                    if (item.op.users == null) {
+                        System.out.print("delete ");
+                    } else {
+                        System.out.print("Create ");
+                    }
+                    print_all(item.op);
+                }
             }
-
-        }
-        // send the log to all the users.
-        public void Send_log(){
-
-
-        }
-
-        // receive log
-        public void Rec_log(){
 
         }
 
@@ -343,12 +348,16 @@ public class LogAndDic {
         }
 
         private void Insert_Dic(meetingInfo e){
-            Cld.add(e);
+            synchronized (lock) {
+                Cld.add(e);
+            }
         }
 
         // delete x
         private void Delete_Dic(meetingInfo e){
-            Cld.remove(e);
+            synchronized (lock) {
+                Cld.remove(e);
+            }
         }
 
         private void printDic(){
@@ -356,7 +365,9 @@ public class LogAndDic {
                 System.out.println("No Dic now");
                 return;
             }
-            Cld.forEach(item-> print_all(item));
+            synchronized (lock) {
+                Cld.forEach(item -> print_all(item));
+            }
         }
 
     }

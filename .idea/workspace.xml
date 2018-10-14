@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3ef749e-a731-4f7a-843a-b87f15240ac8" name="Default Changelist" comment="new">
-      <change afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/Algorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/Algorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Dic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Dic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$eRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic$eRecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/LogAndDic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/meetingInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/meetingInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/distSys/udpSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/distSys/udpSender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared_calendar/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared_calendar/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distSys/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distSys/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distSys/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distSys/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distSys/LogAndDic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distSys/LogAndDic.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,7 +50,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9434" />
+          <entry key="JAVA" value="9584" />
           <entry key="PLAIN_TEXT" value="205" />
         </counts>
       </usages-collector>
@@ -67,7 +59,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="12" />
-          <entry key="java" value="9434" />
+          <entry key="java" value="9584" />
           <entry key="sh" value="151" />
           <entry key="txt" value="42" />
         </counts>
@@ -77,118 +69,87 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.6634769">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="990">
-                  <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/distSys/UdpSender.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-634">
-                  <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#2181#2182#0" expanded="true" />
-                    <element signature="e#2211#2212#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="233">
-                  <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
-                  <folding>
-                    <element signature="e#3417#3418#0" expanded="true" />
-                    <element signature="e#3446#3447#0" expanded="true" />
-                    <element signature="e#7721#7722#0" expanded="true" />
-                    <element signature="e#7765#7766#0" expanded="true" />
-                    <element signature="e#7814#7815#0" expanded="true" />
-                    <element signature="e#7848#7849#0" expanded="true" />
-                    <element signature="e#7917#7918#0" expanded="true" />
-                    <element signature="e#7954#7955#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/distSys/Algorithm.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="44">
-                  <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/udpTest/Sender.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="219">
-                  <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/udpTest/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/distSys/UdpSender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2181#2182#0" expanded="true" />
+                <element signature="e#2211#2212#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#351#352#0" expanded="true" />
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#1965#1966#0" expanded="true" />
+                <element signature="e#2011#2012#0" expanded="true" />
+                <element signature="e#5081#5082#0" expanded="true" />
+                <element signature="e#5110#5111#0" expanded="true" />
+                <element signature="e#9842#9843#0" expanded="true" />
+                <element signature="e#9886#9887#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/distSys/Algorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -205,6 +166,9 @@
       <find>[][]</find>
       <find>args[0]</find>
       <find>deal</find>
+      <find>hostsP</find>
+      <find>onrec</find>
+      <find>myhash</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -227,13 +191,14 @@
         <option value="$PROJECT_DIR$/src/distSys/meetingInfo.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/test.java" />
-        <option value="$PROJECT_DIR$/src/distSys/LogAndDic.java" />
         <option value="$PROJECT_DIR$/src/udpTest.java" />
         <option value="$PROJECT_DIR$/src/udpTest/Listener.java" />
         <option value="$PROJECT_DIR$/src/udpTest/Main.java" />
         <option value="$PROJECT_DIR$/src/udpTest/Sender.java" />
         <option value="$PROJECT_DIR$/src/distSys/UdpSender.java" />
         <option value="$PROJECT_DIR$/src/distSys/Driver.java" />
+        <option value="$PROJECT_DIR$/src/distSys/Algorithm.java" />
+        <option value="$PROJECT_DIR$/src/distSys/LogAndDic.java" />
       </list>
     </option>
   </component>
@@ -244,7 +209,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="238" />
+    <option name="x" value="46" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="1027" />
@@ -294,7 +259,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539547039827" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539548235559" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Global Libraries" />
@@ -504,7 +469,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86815000" />
+    <option name="totallyTimeSpent" value="87689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -516,7 +481,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="238" y="23" width="1400" height="1027" extended-state="0" />
+    <frame x="46" y="23" width="1400" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17083947" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -535,7 +501,7 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4992636" weight="0.32960895" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32941177" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49852726" visible="true" weight="0.27058825" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49852726" visible="true" weight="0.27058825" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5014728" side_tool="true" weight="0.27058825" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49779087" weight="0.32960895" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -636,64 +602,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
-          <folding>
-            <element signature="e#3417#3418#0" expanded="true" />
-            <element signature="e#3446#3447#0" expanded="true" />
-            <element signature="e#7721#7722#0" expanded="true" />
-            <element signature="e#7765#7766#0" expanded="true" />
-            <element signature="e#7814#7815#0" expanded="true" />
-            <element signature="e#7848#7849#0" expanded="true" />
-            <element signature="e#7917#7918#0" expanded="true" />
-            <element signature="e#7954#7955#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/udpTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/udpTest/Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/udpTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/udpTest/Listener.java" />
     <entry file="file://$PROJECT_DIR$/src/udpTest/Sender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/Algorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -717,10 +631,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
+    <entry file="file://$PROJECT_DIR$/src/distSys/meetingInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="66" column="37" lean-forward="true" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+        <state relative-caret-position="270">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -729,12 +643,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/distSys/UdpSender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-634">
+        <state relative-caret-position="165">
           <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2181#2182#0" expanded="true" />
             <element signature="e#2211#2212#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/distSys/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/distSys/Algorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/distSys/LogAndDic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#1965#1966#0" expanded="true" />
+            <element signature="e#2011#2012#0" expanded="true" />
+            <element signature="e#5081#5082#0" expanded="true" />
+            <element signature="e#5110#5111#0" expanded="true" />
+            <element signature="e#9842#9843#0" expanded="true" />
+            <element signature="e#9886#9887#0" expanded="true" />
           </folding>
         </state>
       </provider>
