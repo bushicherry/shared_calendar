@@ -202,14 +202,14 @@ public class Driver {
                 GregorianCalendar gEndTime = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH), date.get(Calendar.DATE), endTime.getHour(), endTime.getMinute());
                 meetingInfo m = new meetingInfo(name, gDate, gStartTime, gEndTime, participants);
 
-                Algorithm.Insert(logAndDic, m, hostsPorts, myName);
+                Algorithm.Insert(logAndDic, m, hostsPorts, myName, socket);
 
 
 
             }
             else if (command.equals("cancel")) {
                 String name = commandS.next();
-                Algorithm.Cancel(logAndDic,name,myName,hostsPorts);
+                Algorithm.Cancel(logAndDic,name,myName,hostsPorts,socket);
             }
             else if (command.equals("view")) {
                 logAndDic.View_dic();

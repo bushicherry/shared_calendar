@@ -318,16 +318,6 @@ public class LogAndDic {
             }
 
         }
-        // send the log to all the users.
-        public void Send_log(){
-
-
-        }
-
-        // receive log
-        public void Rec_log(){
-
-        }
 
     }
 
