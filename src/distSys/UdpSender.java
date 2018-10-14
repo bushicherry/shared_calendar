@@ -9,7 +9,7 @@ public class UdpSender implements Runnable{
     private DatagramSocket socket;
     private DatagramPacket packet;
 
-    public UdpSender(int myPort, int clientPort, String clientName, int numOfPorts, LogAndDic.sendPac pac) {
+    public UdpSender(DatagramSocket socket, int myPort, int clientPort, String clientName, int numOfPorts, LogAndDic.sendPac pac) {
         try {
             // pac to byte[]
             byte[] buffer = new byte[65507];
@@ -75,7 +75,7 @@ public class UdpSender implements Runnable{
 
 
 
-            socket = new DatagramSocket(myPort);
+            this.socket = socket;
             packet = new DatagramPacket(
                     buffer,
                     offset+1,
@@ -84,13 +84,11 @@ public class UdpSender implements Runnable{
             );
         } catch (UnknownHostException e) {
             e.printStackTrace();
-        } catch (SocketException e) {
-            e.printStackTrace();
         }
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         try {
             socket.send(packet);
         } catch (IOException e) {
