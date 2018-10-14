@@ -58,9 +58,7 @@ public class Algorithm {
                 if (proIndex != m.get_process()) {
                     LogAndDic.sendPac my_pac = m.PacReady(proIndex);
                     //send
-                    int my_port = myhash.get(s).getKey();
                     int client_port = myhash.get(uname).getKey();
-
                     UdpSender udpSender = new UdpSender(socket, client_port, uname, myhash.size(), my_pac);
                     new Thread(udpSender).start();
                 }
