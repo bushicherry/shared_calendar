@@ -106,15 +106,21 @@ public class LogAndDic {
     }
 
     public void read_DicAlog_pac(sendPac log_pac, sendPac dic_pac ){
+
         // reload log
-        PLi.log_info.addAll(log_pac.NP);
-        PLi.Ti = log_pac.Ti.clone();
-        PLi.CurTmstmp = log_pac.index;
-        PLi.Index = dic_pac.index;
-        // reload dic
-        for(eRecord er: dic_pac.NP){
-            Vi.Cld.add(new meetingInfo(er.op));
+        if(log_pac != null) {
+            PLi.log_info.addAll(log_pac.NP);
+            PLi.Ti = log_pac.Ti.clone();
+            PLi.CurTmstmp = log_pac.index;
+            PLi.Index = dic_pac.index;
         }
+        // reload dic
+        if(dic_pac != null) {
+            for(eRecord er: dic_pac.NP){
+                Vi.Cld.add(new meetingInfo(er.op));
+            }
+        }
+
     }
 
 
