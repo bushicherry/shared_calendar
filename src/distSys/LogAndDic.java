@@ -1,15 +1,13 @@
 package distSys;
 
-import java.io.Serializable;
 import java.net.DatagramSocket;
 import java.util.*;
 
-public class LogAndDic implements Serializable {
+public class LogAndDic {
 
     // define variable
     private Log PLi;
     private Dic Vi;
-    private static final long serialVersionUID = 1L;
     private final Object lock = new Object();
 
 
@@ -90,6 +88,41 @@ public class LogAndDic implements Serializable {
         }
         return new sendPac("", PLi.Ti, my_NP, PLi.Index);
     }
+
+
+    //for recovery
+    public sendPac get_log_pac(){
+        sendPac pac = new sendPac("", PLi.Ti, PLi.log_info, PLi.CurTmstmp);
+        return pac;
+    }
+
+    public sendPac get_dic_pac(){
+        Vector<eRecord> tmp1 = new Vector<>();
+        for(meetingInfo e: Vi.Cld){
+            tmp1.add(new eRecord(e, 1,1));
+        }
+        sendPac pac = new sendPac("", PLi.Ti, tmp1, PLi.Index);
+        return pac;
+    }
+
+    public void read_DicAlog_pac(sendPac log_pac, sendPac dic_pac ){
+
+        // reload log
+        if(log_pac != null) {
+            PLi.log_info.addAll(log_pac.NP);
+            PLi.Ti = log_pac.Ti.clone();
+            PLi.CurTmstmp = log_pac.index;
+            PLi.Index = dic_pac.index;
+        }
+        // reload dic
+        if(dic_pac != null) {
+            for(eRecord er: dic_pac.NP){
+                Vi.Cld.add(new meetingInfo(er.op));
+            }
+        }
+
+    }
+
 
     // deal with rec
     private boolean helper2(eRecord eR){
@@ -192,11 +225,15 @@ public class LogAndDic implements Serializable {
             @Override
             public int compare(meetingInfo t1, meetingInfo t2) {
                 if(t1.day.compareTo(t2.day) == 0){
+
                     if(t1.start.compareTo(t2.start) == 0){
+
                         if(t1.name.compareTo(t2.name) == 0){
                             return 0;
                         } else return t1.name.compareTo(t2.name);
+
                     } else return t1.start.compareTo(t2.start);
+
                 } else return t1.day.compareTo(t2.day);
             }
         });
@@ -226,6 +263,7 @@ public class LogAndDic implements Serializable {
         meetingInfo op; // operation type
         int tm; // time stamp
         int P_ind; // Process index, Pi, that i
+
 
         public eRecord(meetingInfo a, int b, int c){
             op = new meetingInfo(a);
@@ -308,7 +346,7 @@ public class LogAndDic implements Serializable {
     }
 
 
-    public class Log {
+    public class Log   {
         // log information and current time stamp
         private Vector< eRecord > log_info;
         private int CurTmstmp;
@@ -316,6 +354,7 @@ public class LogAndDic implements Serializable {
         private int Index;
         // matrix in algorithm
         int[][] Ti;
+        private static final long serialVersionUID = 1L;
 
         // initialization n is how many users, and
         //  i is the index for itself
@@ -363,6 +402,7 @@ public class LogAndDic implements Serializable {
         // calender, a vector of vector
         // each vector consists of < <Event name>, <Date>, <Start>, <End>, <User1>...<User n> >
         private Vector< meetingInfo > Cld;
+        private static final long serialVersionUID = 1L;
 
         // insert x to dictionary
 
