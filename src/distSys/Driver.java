@@ -50,6 +50,8 @@ public class Driver {
         final int numOfHosts = numHosts;
         // set up log and dictionary
         final LogAndDic logAndDic = new LogAndDic(numHosts,myIndex);
+        LogAndDic.sendPac[] recov = Algorithm.reload_pro(numOfHosts);
+        logAndDic.read_DicAlog_pac(recov[0], recov[1]);
         final DatagramSocket socket = new DatagramSocket(myPort);
 
 
