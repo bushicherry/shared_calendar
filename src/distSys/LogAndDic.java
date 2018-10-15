@@ -249,10 +249,14 @@ public class LogAndDic {
 
     public void myView(String name){
         int ind = 0;
+
         PriorityQueue<meetingInfo> priQ = get_pQ();
         priQ.addAll(Vi.Cld);
+        PriorityQueue<meetingInfo> pq_copy = new PriorityQueue<>(priQ);
 
-        for(meetingInfo m: priQ){
+
+        while(!pq_copy.isEmpty()){
+            meetingInfo m = pq_copy.poll();
             if(m.users.contains(name)){
                 print_all(m);
                 ind = 1;
@@ -436,12 +440,13 @@ public class LogAndDic {
             synchronized (lock) {
                 PriorityQueue<meetingInfo> priQ = get_pQ();
                 priQ.addAll(Cld);
-                for(meetingInfo e: priQ){
-                    print_all(e);
+                PriorityQueue<meetingInfo> pq_copy = new PriorityQueue<>(priQ);
+                while(!pq_copy.isEmpty()){
+                    print_all(pq_copy.poll());
                 }
+
             }
         }
 
     }
 }
-
