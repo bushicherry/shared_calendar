@@ -28,8 +28,13 @@ public class Algorithm {
 //            System.out.println(e.users);
 //            System.out.println(myhash);
             //send
+            LogAndDic.sendPac pac_log = m.get_log_pac();
+            LogAndDic.sendPac pac_dic = m.get_dic_pac();
+            save_process(pac_log, pac_dic, m.get_usernum());
+
             udpsend(e.users,myhash,m,myname, socket);
             return true;
+
         }
     }
     public static boolean Cancel(LogAndDic m, String mt, String s, HashMap<String, int[] > myhash, DatagramSocket socket){
@@ -39,6 +44,11 @@ public class Algorithm {
             Vector<String> meetingusers = m.get_user(mt);
             m.Delete(mt);
             System.out.println("Meeting " + mt + " cancelled");
+
+            //for recovery
+            LogAndDic.sendPac pac_log = m.get_log_pac();
+            LogAndDic.sendPac pac_dic = m.get_dic_pac();
+            save_process(pac_log, pac_dic, m.get_usernum());
 
             //send
             udpsend(meetingusers, myhash, m, s, socket);
@@ -52,6 +62,11 @@ public class Algorithm {
     public static void Onrec(LogAndDic m, LogAndDic.sendPac pac, String myname, HashMap<String, int[] > myhash, DatagramSocket socket){
         //check pac's avalable:
         m.dealWithReceive(pac, myname, myhash,socket);
+
+        LogAndDic.sendPac pac_log = m.get_log_pac();
+        LogAndDic.sendPac pac_dic = m.get_dic_pac();
+        save_process(pac_log, pac_dic, m.get_usernum());
+
     }
 
     private static void udpsend(Vector<String> meetingusers, HashMap<String, int[] > myhash, LogAndDic m, String s, DatagramSocket socket){

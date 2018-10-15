@@ -1,5 +1,6 @@
 package distSys;
 
+import java.lang.management.PlatformLoggingMXBean;
 import java.net.DatagramSocket;
 import java.util.*;
 
@@ -14,6 +15,10 @@ public class LogAndDic {
 
     public int get_process(){
         return PLi.Index;
+    }
+
+    public int get_usernum(){
+        return PLi.Ti.length;
     }
 
     public Vector<String> get_user(String meetingname){
