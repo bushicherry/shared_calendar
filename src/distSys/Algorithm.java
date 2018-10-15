@@ -64,6 +64,13 @@ public class Algorithm {
     }
 
 
+    public static void save_process(LogAndDic.sendPac log_pac, LogAndDic.sendPac dic_pac){
+
+    }
+
+    public static void reload_pro(){
+
+    }
 
 
 }
